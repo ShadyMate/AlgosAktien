@@ -1,0 +1,3 @@
+C:/Users/luisb/CLionProjects/AlgosAktien/cmake-build-debug/CMakeFiles/AlgosAktien.dir
+C:/Users/luisb/CLionProjects/AlgosAktien/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/luisb/CLionProjects/AlgosAktien/cmake-build-debug/CMakeFiles/rebuild_cache.dir
