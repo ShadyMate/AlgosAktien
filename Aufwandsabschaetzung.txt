@@ -1,0 +1,19 @@
+Aufwand einer Hashtabelle normalerweise:
+Einfügen: O(1), bei 1000 Akten also 1000 Operationen
+Suchen: O(1), -.-
+Löschen: O(1), -.-
+
+Aufwand eines Arrays:
+Einfügen:
+ - am Anfang: O(1)
+ - beliebige Position: O(n), bei 1000 also bis zu 500.000 Operationen
+Suchen: O(n), bei 1000 also bis zu 500.000 Operationen
+Löschen:
+O(n), bei 1000 also bis zu 500.000 Operationen
+
+Aufwand einer verketteten Liste:
+Einfügen:
+ - am Anfang: O(1)
+ - beliebige Position: O(n), bei 1000 also bis zu 500.000 Operationen
+Suchen: O(n), bei 1000 also bis zu 500.000 Operationen
+Löschen: O(n), bei 1000 also bis zu 500.000 Operationen
