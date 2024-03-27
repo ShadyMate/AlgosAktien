@@ -121,18 +121,20 @@ int main() {
     HashTable table;
     int choice;
     while (true) {
-        std::cout << "1. ADD\n2. DEL\n3. IMPORT\n4. SEARCH\n5. PLOT\n6. SAVE\n7. LOAD\n8. QUIT\n";
-        std::cin >> choice;
+        cout << "1. ADD\n2. DEL\n3. IMPORT\n4. SEARCH\n5. PLOT\n6. SAVE\n7. LOAD\n8. QUIT\n";
+        cin >> choice;
         switch (choice) {
             case 1: {
-                std::string name, wkn, symbol;
-                std::cin >> name >> wkn >> symbol;
+                string name, wkn, symbol;
+                cout << "Enter name, WKN and symbol:\n";
+                cin >> name >> wkn >> symbol;
                 table.insert(symbol, {name, wkn, symbol, {}});
                 break;
             }
             case 2: {
-                std::string symbol;
-                std::cin >> symbol;
+                string symbol;
+                cout << "Enter symbol:\n";
+                cin >> symbol;
                 table.remove(symbol);
                 break;
             }
@@ -141,26 +143,30 @@ int main() {
                 break;
             }
             case 4: {
-                std::string symbol;
-                std::cin >> symbol;
+                string symbol;
+                cout << "Enter symbol:\n";
+                cin >> symbol;
                 table.search(symbol);
                 break;
             }
             case 5: {
-                std::string symbol;
-                std::cin >> symbol;
+                string symbol;
+                cout << "Enter symbol:\n";
+                cin >> symbol;
                 table.plot(symbol);
                 break;
             }
             case 6: {
-                std::string filename;
-                std::cin >> filename;
+                string filename;
+                cout << "Enter filename:\n";
+                cin >> filename;
                 table.save(filename);
                 break;
             }
             case 7: {
-                std::string filename;
-                std::cin >> filename;
+                string filename;
+                cout << "Enter filename:\n";
+                cin >> filename;
                 table.load(filename);
                 break;
             }
@@ -169,7 +175,7 @@ int main() {
                 break;
             }
             default: {
-                std::cout << "Ungültige Auswahl.\n";
+                cout << "Ungültige Auswahl.\n";
                 break;
             }
         }
