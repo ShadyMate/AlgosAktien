@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1711973781 source:c:\users\nbran\downloads\algo_hash\main.cpp
+	<iostream>
+	<Stock.h>
+	<Hash.h>
+	<string>
+
+1711963582 c:\users\nbran\downloads\algo_hash\include\stock.h
+	<iostream>
+	<unordered_map>
+	<string>
+	<vector>
+
+1711977007 c:\users\nbran\downloads\algo_hash\include\hash.h
+	<Stock.h>
+	<string>
+
+1711971686 source:c:\users\nbran\downloads\algo_hash\src\hash.cpp
+	"Hash.h"
+	"Stock.h"
+	<algorithm>
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+
+1711977311 source:c:\users\nbran\downloads\algo_hash\src\stock.cpp
+	"Stock.h"
+	<iostream>
+	<unordered_map>
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+
+1711971686 source:c:\users\nbran\downloads\algo_hash - copy\src\hash.cpp
+	"Hash.h"
+	"Stock.h"
+	<algorithm>
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+
+1711977007 c:\users\nbran\downloads\algo_hash - copy\include\hash.h
+	<Stock.h>
+	<string>
+
+1711963582 c:\users\nbran\downloads\algo_hash - copy\include\stock.h
+	<iostream>
+	<unordered_map>
+	<string>
+	<vector>
+
+1711977311 source:c:\users\nbran\downloads\algo_hash - copy\src\stock.cpp
+	"Stock.h"
+	<iostream>
+	<unordered_map>
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+
+1712255470 source:c:\users\nbran\downloads\algo_hash_boehler-brandtner\main.cpp
+	<iostream>
+	<Stock.h>
+	<Hash.h>
+	<string>
+	<limits>
+
+1712261934 c:\users\nbran\downloads\algo_hash_boehler-brandtner\include\stock.h
+	<iostream>
+	<string>
+	<vector>
+
+1712261934 c:\users\nbran\downloads\algo_hash_boehler-brandtner\include\hash.h
+	<Stock.h>
+	<string>
+
+1712261934 source:c:\users\nbran\downloads\algo_hash_boehler-brandtner\src\stock.cpp
+	"Stock.h"
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+
+1712261934 source:c:\users\nbran\downloads\algo_hash_boehler-brandtner\src\hash.cpp
+	"Hash.h"
+	"Stock.h"
+	<algorithm>
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+
