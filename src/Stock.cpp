@@ -7,8 +7,7 @@
 
 using namespace std;
 
-Stock::Stock(string name, string wkn, string acro)
-{
+Stock::Stock(string name, string wkn, string acro){
     this->name = name;
     this->wkn = wkn;
     this->acro = acro;
@@ -16,33 +15,27 @@ Stock::Stock(string name, string wkn, string acro)
 
 }
 
-string Stock::getName()
-{
+string Stock::getName(){
     return name;
 }
-string Stock::getWkn()
-{
+string Stock::getWkn(){
     return wkn;
 }
-string Stock::getAcro()
-{
+string Stock::getAcro(){
     return acro;
 }
-vector<StockVal>& Stock::getStockVal()
-{
+vector<StockVal>& Stock::getStockVal(){
     return stockValVector;
 }
 
 
-void Stock::setStockArguments(string name, string wkn, string acro)
-{
+void Stock::setStockArguments(string name, string wkn, string acro){
     this->name = name;
     this->wkn = wkn;
     this->acro = acro;
 }
 
-void Stock::displayLatestStockVal(Stock* stock)
-{
+void Stock::displayLatestStockVal(Stock* stock){
     if (!stock->stockValVector.empty()) {
         const auto& data = stock->stockValVector.back();
         cout << "Date: " << data.date << endl;
@@ -57,8 +50,7 @@ void Stock::displayLatestStockVal(Stock* stock)
     }
 }
 
-StockVal Stock::parseCSVLine(const string& line)
-{
+StockVal Stock::parseCSVLine(const string& line){
     StockVal data;
 
     stringstream ss(line);
@@ -99,8 +91,7 @@ StockVal Stock::parseCSVLine(const string& line)
     return data;
 }
 
-void Stock::importCSVData(const string& filename, vector<StockVal>& stockVectorData)
-{
+void Stock::importCSVData(const string& filename, vector<StockVal>& stockVectorData){
     ifstream file(filename);
 
     // Check if the file was successfully opened
@@ -124,14 +115,12 @@ void Stock::importCSVData(const string& filename, vector<StockVal>& stockVectorD
     cout << "File \"" << filename << "\" was successfully imported!" << endl;
 }
 
-Stock Stock::createStock()
-{
+Stock Stock::createStock(){
     importCSVData("file.csv", this->stockValVector);
     return *this;
 }
 
-string Stock::serialize()
-{
+string Stock::serialize(){
     stringstream ss;
     ss << name << "," << wkn << "," << acro;
 
@@ -144,8 +133,7 @@ string Stock::serialize()
 }
 
 
-Stock Stock::deserialize(const string& line)
-{
+Stock Stock::deserialize(const string& line){
     Stock stock("", "", "");
     stringstream ss(line);
     string token;
@@ -181,11 +169,10 @@ Stock Stock::deserialize(const string& line)
         getline(ss, token, ',');
         data.volume = stoi(token);
 
-        getline(ss, token, ',');
-        if (ss.eof()) {
-            break;
+        if (!ss.eof()) {
+            getline(ss, token, ',');
+            data.adj_close = stod(token);
         }
-        data.adj_close = stod(token);
 
         stock.stockValVector.push_back(data);
     }
@@ -193,8 +180,6 @@ Stock Stock::deserialize(const string& line)
     return stock;
 }
 
-
-Stock::~Stock()
-{
+Stock::~Stock(){
 
 }

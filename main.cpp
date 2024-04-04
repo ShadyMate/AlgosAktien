@@ -7,8 +7,7 @@
 using namespace std;
 
 
-string getUserString(int number)
-{
+string getUserString(int number){
     string input = "0";
     switch(number)
     {
@@ -45,24 +44,21 @@ int actionInput() {
     return 0; // Return a default value
 }
 
-string getStockName()
-{
+string getStockName(){
     cout << "Enter the stock name: ";
     string input;
     cin >> input;
     return input;
 }
 
-string getStockAcro()
-{
+string getStockAcro(){
     cout << "Enter the stock acronym: ";
     string input;
     cin >> input;
     return input;
 }
 
-void actionMenu()
-{
+void actionMenu(){
     cout << "------------------------------------------"<< endl;
     cout << "|          1: Add a stock item           |"<< endl;
     cout << "|        2: Delete a stock item          |"<< endl;
@@ -108,12 +104,14 @@ void userAction(int input, Hash* hashTable, Hash* acroHashTable) {
                 name = getStockName();
                 Stock* stock = hashTable->getStockByName(name);
                 if (stock != nullptr) {
+                    cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
                     stock->displayLatestStockVal(stock);
                 }
             } else if (choice == 2) {
                 acro = getStockAcro();
                 Stock* stock = acroHashTable->getStockByAcro(acro);
                 if (stock != nullptr) {
+                    cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
                     stock->displayLatestStockVal(stock);
                 }
             }
@@ -144,8 +142,7 @@ void userAction(int input, Hash* hashTable, Hash* acroHashTable) {
 
 
 
-int main()
-{
+int main(){
     int input = 0;
     Hash* hashTable = new Hash(1000, 0);
     Hash* acroHashTable = new Hash(1000, 0);
@@ -161,7 +158,6 @@ int main()
     return 0;
 }
 
-Hash::~Hash()
-{
+Hash::~Hash(){
 
 }

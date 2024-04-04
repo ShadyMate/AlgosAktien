@@ -10,8 +10,7 @@ using namespace std;
 #define CAPACITY 1000;
 
 
-Hash::Hash(int size, int count)
-{
+Hash::Hash(int size, int count){
     this->size = size;
     this->count = count;
     this->item = new Stock*[size];
@@ -21,34 +20,28 @@ Hash::Hash(int size, int count)
     }
 }
 
-int Hash::getSize()
-{
+int Hash::getSize(){
     return size;
 }
 
-int Hash::getCount()
-{
+int Hash::getCount(){
     return count;
 }
 
-void Hash::setSize(int size)
-{
+void Hash::setSize(int size){
     this->size = size;
 }
 
-void Hash::setCount(int count)
-{
+void Hash::setCount(int count){
     this->count = count;
 }
 
-Stock* Hash::getStock(string key)
-{
+Stock* Hash::getStock(string key){
     int index = hashFunction(key);
     return item[index];
 }
 
-int Hash::hashFunction(string key)
-{
+int Hash::hashFunction(string key){
     int hash = 0;
     int index;
 
@@ -70,8 +63,7 @@ int Hash::acroHashFunction(string acro) {
     return hash;
 }
 
-void Hash::deleteTable(Hash* table)
-{
+void Hash::deleteTable(Hash* table) {
     for (int i = 0; i < table->size; i++)
     {
         delete table->item[i];
@@ -137,8 +129,7 @@ void Hash::deleteHashItem(string name, Hash* acroHashTable) {
 }
 
 
-void Hash::populateHashItem(string name)
-{
+void Hash::populateHashItem(string name){
     int index = hashFunction(name);
     Stock* stock = item[index];
     if (stock == nullptr)
@@ -173,8 +164,7 @@ Stock* Hash::getStockByAcro(string acro) {
     return stock;
 }
 
-int Hash::checkForCollision(string key, int index)
-{
+int Hash::checkForCollision(string key, int index){
     for(int i = 0;i < this->size;i++){
         int newIndex = (index + i*i) % this->size;
         if (item[newIndex] == nullptr || item[newIndex]->getName() == key)
@@ -187,8 +177,7 @@ int Hash::checkForCollision(string key, int index)
     return -1;
 }
 
-void Hash::getCloseValues(string name)
-{
+void Hash::getCloseValues(string name){
     int index = hashFunction(name);
     Stock* stock = item[index];
     if (stock == nullptr)
@@ -205,7 +194,7 @@ void Hash::getCloseValues(string name)
     }
 
     vector<double> closePrices;
-// Change the integer to whatever value you need
+    // Change the integer to whatever value you need
     int start = stock->getStockVal().size() > 30 ? stock->getStockVal().size() - 30 : 0;
     for (int i = stock->getStockVal().size() - 1; i >= start; i--)
     {
@@ -215,8 +204,7 @@ void Hash::getCloseValues(string name)
     drawPlot(closePrices);
 }
 
-void Hash::drawPlot(vector<double> closePrices)
-{
+void Hash::drawPlot(vector<double> closePrices){
     double minValue = *min_element(closePrices.begin(), closePrices.end());
     //double maxValue = *max_element(closePrices.begin(), closePrices.end());
 
@@ -233,8 +221,7 @@ void Hash::drawPlot(vector<double> closePrices)
         cout << "X" << endl;
     }
 }
-void Hash::saveToFile(const string& filename, Hash* acroHashTable)
-{
+void Hash::saveToFile(const string& filename, Hash* acroHashTable){
     ofstream file;
     file.open(filename);
 
@@ -257,8 +244,7 @@ void Hash::saveToFile(const string& filename, Hash* acroHashTable)
     file.close();
 }
 
-void Hash::deleteAllEntries()
-{
+void Hash::deleteAllEntries(){
     for (int i = 0; i < size; i++) {
         if (item[i] != nullptr) {
             delete item[i];
@@ -267,8 +253,7 @@ void Hash::deleteAllEntries()
     }
 }
 
-void Hash::loadFromFile(const string& filename, Hash* acroHashTable)
-{
+void Hash::loadFromFile(const string& filename, Hash* acroHashTable){
     //to clear hash table before loading new data
     deleteAllEntries();
 
@@ -294,7 +279,7 @@ void Hash::loadFromFile(const string& filename, Hash* acroHashTable)
         // Get the index and serialized stock from the line
         getline(ss, indexStr, ',');
         getline(ss, acroIndexStr, ',');
-        getline(ss, serializedStock, ',');
+        getline(ss, serializedStock); // Read the rest of the line
 
         // Convert the indices to integers
         int index = stoi(indexStr);
@@ -302,7 +287,7 @@ void Hash::loadFromFile(const string& filename, Hash* acroHashTable)
 
         // Create a new Stock object from the serialized data
         Stock* stock = new Stock("", "", "");
-        stock->deserialize(serializedStock);
+        *stock = stock->deserialize(serializedStock);
 
         // Add the stock to the hash tables at the correct indices
         item[index] = stock;

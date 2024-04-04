@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Hash
-{
+class Hash{
     public:
         Hash(int size, int count);
 
