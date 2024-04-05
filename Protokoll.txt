@@ -1,0 +1,28 @@
+Protokoll:
+
+Beschreibung der Datenstruktur:
+
+Die implementierte Datenstruktur ist eine Hashtabelle, die zur Speicherung von Aktienobjekten verwendet wird.
+Die Hashtabelle ist als Array von Zeigern auf Aktienobjekte implementiert.
+Die Größe der Hashtabelle wird während der Initialisierung festgelegt.
+Die Größe der Hashtabelle beträgt standardmäßig 1000.
+
+Hashfunktion und Kollisionserkennung:
+
+Die Hashtabelle verwendet eine Hashfunktion, um den Index für die Speicherung von Aktienobjekten zu berechnen.
+Die verwendete Hashfunktion addiert die ASCII-Werte der Zeichen im Schlüssel (Name der Aktie) und verwendet dann den Modulo-Operator,
+um den Index zu berechnen. Um Kollisionen zu behandeln, wird lineares Sondieren verwendet,
+wobei bei einer Kollision der nächste freie Slot in der Hashtabelle gesucht wird.
+
+Verwaltung der Kursdaten:
+
+Die Kursdaten werden in einem separaten Vektor innerhalb jedes Aktienobjekts gespeichert.
+Die Importfunktion importCSVData() liest Daten aus einer CSV-Datei ein und speichert sie in diesem Vektor.
+Die Kursdaten werden als Objekte der Struktur StockVal gespeichert, die das Datum und verschiedene Kurswerte wie Eröffnungskurs,
+Schlusskurs usw. enthält.
+
+Löschalgorithmus:
+
+Das Löschen eines Aktienobjekts aus der Hashtabelle erfolgt durch Suchen des Objekts anhand seines Namens mithilfe der Hashfunktion.
+Wenn das Objekt gefunden wird, wird es gelöscht, und seine Referenz in der Hashtabelle wird auf nullptr gesetzt.
+Zusätzlich wird das zugehörige Objekt aus der Akronym-Hashtabelle gelöscht.
