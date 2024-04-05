@@ -34,7 +34,7 @@ durchschnittliche Komplexität von O(1), da in den meisten Fällen nur eine einz
 Aufwandsabschätzung:
 
 Aufwand einer Hashtabelle normalerweise:
-Einfügen: O(1), bei 1000 Akten also 1000 Operationen
+Einfügen: O(1), bei 1000 Aktien also 1000 Operationen
 Suchen: O(1), -.-
 Löschen: O(1), -.-
 
