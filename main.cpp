@@ -131,6 +131,7 @@ void userAction(int input, Hash* hashTable, Hash* acroHashTable) {
         break;
     case 8: // quit
         hashTable->deleteTable(hashTable);
+        acroHashTable->deleteTable(acroHashTable);
         cout << "Was I not good enough? :(" << endl;
         break;
     default:
