@@ -92,30 +92,30 @@ void userAction(int input, Hash* hashTable, Hash* acroHashTable) {
         hashTable->populateHashItem(getStockName());
         break;
     case 4: // search stock item
-            cout << "Search by (1) Name or (2) Acronym? ";
-            int choice;
-            try{
-                cin >> choice;
-            }catch (invalid_argument& ia){ // Catch invalid argument exception
-                cout << "Not a valid Input, try again." << endl;
-                break;
-            }
-            if (choice == 1) {
-                name = getStockName();
-                Stock* stock = hashTable->getStockByName(name);
-                if (stock != nullptr) {
-                    cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
-                    stock->displayLatestStockVal(stock);
-                }
-            } else if (choice == 2) {
-                acro = getStockAcro();
-                Stock* stock = acroHashTable->getStockByAcro(acro);
-                if (stock != nullptr) {
-                    cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
-                    stock->displayLatestStockVal(stock);
-                }
-            }
+        cout << "Search by (1) Name or (2) Acronym? ";
+        int choice;
+        try{
+            cin >> choice;
+        }catch (invalid_argument& ia){ // Catch invalid argument exception
+            cout << "Not a valid Input, try again." << endl;
             break;
+        }
+        if (choice == 1) {
+            name = getStockName();
+            Stock* stock = hashTable->getStockByName(name);
+            if (stock != nullptr) {
+                cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
+                stock->displayLatestStockVal(stock);
+            }
+        } else if (choice == 2) {
+            acro = getStockAcro();
+            Stock* stock = acroHashTable->getStockByAcro(acro);
+            if (stock != nullptr) {
+                cout << "\nName: " << stock->getName() << "\nAcronym: " << stock->getAcro() << "\nWKN: " << stock->getWkn() << "\n\n";
+                stock->displayLatestStockVal(stock);
+            }
+        }
+        break;
     case 5: // plot stock item
         hashTable->getCloseValues(getStockName());
         break;

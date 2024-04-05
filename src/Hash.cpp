@@ -76,7 +76,9 @@ void Hash::deleteTable(Hash* table) {
 }
 
 void Hash::createHashItem(string name, string WKN, string acro, Hash* acroHashTable) {
+    
     int index = checkForCollision(name, hashFunction(name));
+
     if (index == -1) {
         cout << "Hash table is full. Cannot add new stock." << endl;
         return;
@@ -113,9 +115,10 @@ void Hash::deleteHashItem(string name, Hash* acroHashTable) {
             delete item[index];
             item[index] = nullptr;
 
-            // Remove the item from the acronym hash table
+            // Remove the item from the acronym hash table and the name hashtable
             int acroIndex = acroHashTable->acroHashFunction(acro);
             acroHashTable->item[acroIndex] = nullptr;
+            setCount(getCount()-1);
 
             cout << "The item \""<< name << "\" has been deleted." << endl;
             return;
@@ -196,17 +199,14 @@ void Hash::getCloseValues(string name){
     vector<double> closePrices;
     // Change the integer to whatever value you need
     int start = stock->getStockVal().size() > 30 ? stock->getStockVal().size() - 30 : 0;
-    for (int i = stock->getStockVal().size() - 1; i >= start; i--)
-    {
+    for (int i = stock->getStockVal().size() - 1; i >= start; i--) {
         closePrices.push_back(stock->getStockVal()[i].close);
     }
-
     drawPlot(closePrices);
 }
 
 void Hash::drawPlot(vector<double> closePrices){
     double minValue = *min_element(closePrices.begin(), closePrices.end());
-    //double maxValue = *max_element(closePrices.begin(), closePrices.end());
 
     for (double price : closePrices)
     {

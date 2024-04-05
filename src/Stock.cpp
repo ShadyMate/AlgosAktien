@@ -111,7 +111,6 @@ void Stock::importCSVData(const string& filename, vector<StockVal>& stockVectorD
     }
 
     file.close();
-    //displayStockVal();
     cout << "File \"" << filename << "\" was successfully imported!" << endl;
 }
 

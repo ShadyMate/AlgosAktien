@@ -94,7 +94,7 @@
 	<sstream>
 	<fstream>
 
-1712262049 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\main.cpp
+1712309470 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\main.cpp
 	<iostream>
 	<Stock.h>
 	<Hash.h>
@@ -106,11 +106,11 @@
 	<string>
 	<vector>
 
-1712261934 c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\include\hash.h
+1712272304 c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\include\hash.h
 	<Stock.h>
 	<string>
 
-1712271669 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\src\hash.cpp
+1712309855 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\src\hash.cpp
 	"Hash.h"
 	"Stock.h"
 	<algorithm>
@@ -119,7 +119,7 @@
 	<sstream>
 	<fstream>
 
-1712270259 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\src\stock.cpp
+1712309281 source:c:\users\nbran\downloads\algo_hash_boehler_brandtner\algosaktien\src\stock.cpp
 	"Stock.h"
 	<iostream>
 	<string>
